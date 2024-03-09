@@ -1,29 +1,38 @@
 // Get a reference to the #add-employees-btn element
 const addEmployeesBtn = document.querySelector("#add-employees-btn");
 
+let employeesArray = [];
+
 // Collect employee data
 const collectEmployees = function () {
   // TODO: Get user input to create and return an array of employee objects
 
-  let employeesArray = {
-    firstName: firstNameInput,
-    lastName: lastNameInput,
-    salary: salaryInput,
-  };
+  let keepAdding = true;
 
   while (keepAdding) {
-    firstName.firstNameInput = window.prompt("Enter first name:");
-    lastName.lastNameInput = window.prompt("Enter last name:");
-    salary.salaryInput = window.prompt("Enter salary:");
+    //create a new object for each employee
+    let employee = {
+      firstName: window.prompt("Enter first name:"),
+      lastName: window.prompt("Enter last name:"),
+      salary: window.prompt("Enter salary:"),
+    };
 
     //salary must be a number or it defaults to zero
-    if (isNaN(salary.salaryInput)) salary.salaryInput = 0;
+    if (isNaN(employee.salary)) {
+      employee.salary = 0;
+    }
 
-    if (!firstName || !lastName || !salary)
-      return employeesArray[(firstName, lastName, salary)];
+    //add employee to the employeesArray
+    employeesArray.push(employee);
 
-    employeesArray.firstName;
+    console.log(employeesArray);
+    console.log(employeesArray.length);
+
+    keepAdding = window.confirm("Would you like to add another employee?");
   }
+
+  //return the array after the loop is finished
+  return employeesArray;
 };
 
 // Display the average salary
@@ -34,6 +43,7 @@ const displayAverageSalary = function (employeesArray) {
 // Select a random employee
 const getRandomEmployee = function (employeesArray) {
   // TODO: Select and display a random employee
+  const index = Math.floor(Math.random() * employeesArray.length);
 };
 
 /*
@@ -101,3 +111,6 @@ const trackEmployeeData = function () {
 
 // Add event listener to 'Add Employees' button
 addEmployeesBtn.addEventListener("click", trackEmployeeData);
+
+//Run the app
+collectEmployees();
