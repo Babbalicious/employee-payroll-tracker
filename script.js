@@ -38,12 +38,23 @@ const collectEmployees = function () {
 // Display the average salary
 const displayAverageSalary = function (employeesArray) {
   // TODO: Calculate and display the average salary
+  let totalSalary = 0;
+  let averageSalary;
+  for (let i = 0; i < employeesArray.length; i++) {
+    totalSalary += employeesArray.salary;
+  }
+  averageSalary = totalSalary / employeesArray.length;
+  console.log(`The average salary is ${averageSalary}`);
 };
 
 // Select a random employee
 const getRandomEmployee = function (employeesArray) {
   // TODO: Select and display a random employee
   const index = Math.floor(Math.random() * employeesArray.length);
+  const randomEmployee = employeesArray[index];
+  console.log(
+    `Random employee: ${randomEmployee.firstName} ${randomEmployee.lastName}.`
+  );
 };
 
 /*
@@ -111,6 +122,3 @@ const trackEmployeeData = function () {
 
 // Add event listener to 'Add Employees' button
 addEmployeesBtn.addEventListener("click", trackEmployeeData);
-
-//Run the app
-collectEmployees();
