@@ -14,7 +14,7 @@ const collectEmployees = function () {
     let employee = {
       firstName: window.prompt("Enter first name:"),
       lastName: window.prompt("Enter last name:"),
-      salary: window.prompt("Enter salary:"),
+      salary: parseFloat(window.prompt("Enter salary:")),
     };
 
     //salary must be a number or it defaults to zero
@@ -40,10 +40,14 @@ const displayAverageSalary = function (employeesArray) {
   // TODO: Calculate and display the average salary
   let totalSalary = 0;
   let averageSalary;
+
   for (let i = 0; i < employeesArray.length; i++) {
-    totalSalary += employeesArray.salary;
+    const index = employeesArray[i];
+    const employeeSalary = index.salary;
+    totalSalary += employeeSalary;
   }
   averageSalary = totalSalary / employeesArray.length;
+  console.log(`The number of employees is ${employeesArray.length}`);
   console.log(`The average salary is ${averageSalary}`);
 };
 
