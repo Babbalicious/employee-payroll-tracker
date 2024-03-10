@@ -14,6 +14,7 @@ const collectEmployees = function () {
     let employee = {
       firstName: window.prompt("Enter first name:"),
       lastName: window.prompt("Enter last name:"),
+      //added parseFloat because salary was remaining a string throughout code
       salary: parseFloat(window.prompt("Enter salary:")),
     };
 
